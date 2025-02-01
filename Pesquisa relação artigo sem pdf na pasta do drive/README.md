@@ -38,7 +38,7 @@ Para executar o código, é necessário estar logado no Google Colab, que conté
 
 ## Exemplo de Uso
 
-```python
+```bash
 # Exemplo de execução
 
 1, Adicionar pasta para pesquisa.
