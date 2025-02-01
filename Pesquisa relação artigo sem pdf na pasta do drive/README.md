@@ -16,6 +16,9 @@ Este projeto é baseado nas seguintes etapas:
 ## Funcionalidades
 
 - **puxa_dados**: Função que coleta os nomes dos arquivos dentro de uma pasta especificada.
+- **pegar_dados**: Função pega dados do copia e cola do google sheelts e transforma em uma lista de nomes incluindo o .pdf
+- **montagem_caminho**: Salva os caminhos dos dois arquivos que serão limpos e encrementado com a pesquisa
+- **limpa_lista**: Limpa a lista para depois serem encrementada
 
 ## Requisitos
 
