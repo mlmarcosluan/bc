@@ -1,53 +1,91 @@
-# Pesquisa de Relação de Artigos sem Arquivos na Pasta do Drive
+# **Pesquisa de Relação de Artigos Sem Arquivos na Pasta do Drive**
 
-Este código cria uma lista de nomes de todos os arquivos em uma pasta específica e compara com uma lista de dados copiada e colada do terminal. Ele salva um arquivo com a relação de nomes de artigos que não possuem o PDF correspondente na pasta do Drive.
+O programa **Pesquisa de Relação de Artigos Sem Arquivos na Pasta do Drive** é um conjunto de scripts desenvolvidos para manipulação, organização e análise de dados. Este programa foi inicialmente criado para automatizar processos de comparação e gerenciamento de arquivos relacionados ao trabalho realizado na Biblioteca Central da Unicamp.
 
-## Descrição
+---
 
-Este projeto é baseado nas seguintes etapas:
+## **Funcionalidades**
 
-1. **Criação de uma lista de nomes de arquivos**: O código gera uma lista com os nomes dos arquivos presentes em uma pasta especificada pelo usuário.
-2. **Entrada de caminhos de arquivos**: O usuário deve fornecer dois caminhos de arquivos:
-    - `nomes.txt`: Lista com os nomes de todos os arquivos na pasta especificada.
-    - `nomes_sem_arquivos.txt`: Lista com a relação de artigos que não possuem PDF na pasta especificada.
-3. **Inserção de dados**: O usuário deve copiar e colar uma lista de dados do Google Sheets.
-4. **Execução do script**: O script compara os dados copiados e colados com os nomes dos arquivos na pasta e salva um arquivo com a relação de artigos que não possuem PDF.
+### **1. Pesquisa de Relação de Artigos Sem Arquivos na Pasta do Drive**
+- Gera uma lista com os nomes dos arquivos presentes em uma pasta específica do Google Drive.
+- Compara os nomes dos arquivos com uma lista fornecida pelo usuário (copiada do Google Sheets ou outra fonte).
+- Gera um arquivo com os nomes dos artigos que não possuem PDFs correspondentes na pasta do Drive.
 
-## Funcionalidades
+### **2. Contagem de Arquivos em uma Pasta do Google Drive**
+- Lista os nomes dos arquivos presentes em uma pasta do Google Drive.
+- Exibe a quantidade total de arquivos na pasta especificada.
 
-- **puxa_dados**: Função que coleta os nomes dos arquivos dentro de uma pasta especificada.
-- **pegar_dados**: Função pega dados do copia e cola do google sheelts e transforma em uma lista de nomes incluindo o .pdf
-- **montagem_caminho**: Salva os caminhos dos dois arquivos que serão limpos e encrementado com a pesquisa
-- **limpa_lista**: Limpa a lista para depois serem encrementada
+### **3. Interface de Menu Interativo**
+- Menus que permitem configurar os caminhos de pastas e arquivos durante a execução.
+- Opções para realizar diferentes operações com base na escolha do usuário.
 
-## Requisitos
+---
 
-Para executar o código, é necessário estar logado no Google Colab, que contém o Drive com os arquivos compartilhados com você.
+## **Como Funciona**
 
-## Como Usar
+### **Fluxo Principal**
+1. O script monta o Google Drive no ambiente Colab para acessar as pastas e arquivos.
+2. Exibe um menu inicial com as seguintes opções:
+   - **0**: Sair do programa.
+   - **1**: Pesquisa de relação de artigos sem arquivos correspondentes.
+   - **2**: Contagem de arquivos em uma pasta do Google Drive.
+3. Dependendo da escolha, o usuário é direcionado para menus específicos para configurar os caminhos e executar as ações.
 
-1. **Inicialização**: Ao iniciar o programa, escolha entre:
-    - `1`: Continuar
-    - `2`: Sair
+### **Menus Secundários**
+#### **Menu de Pesquisa de Relação de Artigos**
+- Configuração dos caminhos:
+  - Pasta do Google Drive contendo os arquivos.
+  - Arquivo de saída para os nomes encontrados.
+  - Arquivo de saída para os artigos sem arquivos correspondentes.
+- Entrada dos nomes dos artigos (copiados e colados pelo usuário).
+- Execução da pesquisa e geração dos arquivos de saída.
 
-2. **Menu de Opções**: No menu, selecione quais dados você deseja inserir na pesquisa.
+#### **Menu de Contagem de Arquivos**
+- Configuração do caminho da pasta a ser analisada.
+- Exibição do número total de arquivos na pasta especificada.
 
-3. **Execução da Pesquisa**: Após inserir todos os dados, escolha a opção `5` para realizar a pesquisa.
+---
 
-4. **Resultados**: Após alguns segundos, os arquivos `nomes.txt` e `nomes_sem_arquivo.txt` serão salvos na pasta especificada no passo 2.
+## **Estrutura do Código**
 
-## Exemplo de Uso
+### **Funções Principais**
+- **`main()`**: Controla o fluxo principal do programa e exibe o menu inicial.
+- **`menu_relacao_pdf()`**: Gerencia a configuração e execução da pesquisa de relação de artigos.
+- **`menu_n_arquivos()`**: Gerencia a configuração e execução da contagem de arquivos em uma pasta.
 
-```bash
-# Exemplo de execução
+### **Funções Auxiliares**
+- **`aplica_pdf(lista_nome)`**: Adiciona a extensão ".pdf" aos nomes fornecidos pelo usuário.
+- **`pega_dados()`**: Recebe e processa os nomes de artigos fornecidos pelo usuário.
+- **`limpa_lista(arquivo_saida)`**: Limpa o conteúdo de um arquivo de saída.
+- **`puxa_nomes(pasta_drive, arquivo_saida)`**: Recupera os nomes dos arquivos em uma pasta do Google Drive e os salva em um arquivo.
+- **`montegem_caminho()`**: Solicita ao usuário o caminho de uma pasta ou arquivo.
+- **`limpar_tela()`**: Limpa a tela do terminal para melhorar a exibição dos menus.
 
-1, Adicionar pasta para pesquisa.
-2, Acicionar arquivo de saida da lista de nomes.
-3, Adicionar arquivo de saida da relação de nomes sem arquivos.
-4, Adicionar nomes do copia e cola do excel.
-0, sair.
+---
 
-Pasta do drive para pesquisa:  /content/drive/Shareddrives/BC
-Arquivo para salvar nomes.txt /content/drive/MyDrive/nomes.txt
-Arquivo para salvar relação de nomes sem arquivos /content/drive/MyDrive/nomes_sem_arquivos.txt
-Lista de nomes do excel copiado.
+## **Requisitos**
+
+- **Python 3.x**
+- **Google Colab** (para acesso ao Google Drive)
+- Bibliotecas utilizadas:
+  - `os`
+  - `time`
+  - `IPython.display`
+
+---
+
+## **Como Usar**
+
+1. Monte o Google Drive no Google Colab:
+   ```python
+   from google.colab import drive
+   drive.mount('/content/drive')
+   ```
+2. Execute o script principal.
+3. Siga as instruções do menu para configurar os caminhos e realizar as operações desejadas.
+
+---
+
+## **Contribuições**
+
+Contribuições são bem-vindas! Caso tenha sugestões ou encontre problemas, sinta-se à vontade para abrir issues ou enviar pull requests.
