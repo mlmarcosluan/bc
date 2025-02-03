@@ -1,102 +1,58 @@
-# **BC**
+# **BC - Repositório de Scripts para Automação na Biblioteca Central**
 
-O repositório **BC** é um conjunto de projetos desenvolvidos para manipulação, organização e análise de dados, com foco inicial em automatizar processos de comparação e gerenciamento de arquivos. Foi criado para agilizar o trabalho na bolsa BAS realizada na Biblioteca Central da Unicamp.
+O repositório **BC** foi criado para armazenar scripts e ferramentas desenvolvidas para agilizar tarefas realizadas como bolsista BAS na Biblioteca Central da Unicamp. Ele inclui programas para manipulação, organização e análise de dados, com foco principal em Python, mas também está aberto para outras linguagens quando necessário.
 
 ---
 
-## **Projetos no Repositório**
+## **Programas no Repositório**
 
 ### **1. Pesquisa de Relação de Artigos Sem Arquivos na Pasta do Drive**
-O projeto inicial deste repositório realiza as seguintes ações:
-- Gera uma lista com os nomes dos arquivos em uma pasta específica no Google Drive.
-- Compara os nomes dos arquivos com uma lista copiada do Google Sheets.
-- Salva um arquivo com a relação de artigos que não possuem PDFs na pasta correspondente.
+- Um programa que verifica quais artigos listados não possuem arquivos correspondentes em uma pasta do Google Drive.
+- Funcionalidades:
+  - Geração de lista com os nomes dos arquivos no Drive.
+  - Comparação com uma lista fornecida pelo usuário (copiada, por exemplo, de uma planilha do Google Sheets).
+  - Geração de relatório com os nomes ausentes.
 
-### **2. Contagem de Arquivos em uma Pasta do Google Drive**
-Uma funcionalidade adicional que permite:
-- Listar os nomes dos arquivos em uma pasta específica do Google Drive.
-- Exibir o número total de arquivos encontrados na pasta.
+### **2. Contagem de Arquivos em Pastas do Google Drive**
+- Um script simples para listar e contar os arquivos em uma pasta específica no Drive.
+- Exibe rapidamente o número total de arquivos na pasta.
 
-### **3. Interface de Menu Interativo**
-Agora o repositório conta com menus interativos que permitem:
-- Configurar os caminhos das pastas e arquivos diretamente durante a execução do script.
-- Realizar ações com base em opções selecionadas pelo usuário.
+### **3. Outros Scripts Futuramente**
+- Este repositório será expandido para incluir novas ferramentas que automatizem e facilitem tarefas relacionadas ao trabalho como bolsista BAS.
 
 ---
 
-## **Objetivo do Repositório**
+## **Objetivos do Repositório**
 
-O objetivo do repositório **BC** é:
-- Desenvolver ferramentas automatizadas para análise de dados.
-- Facilitar o gerenciamento de arquivos em sistemas locais e na nuvem.
-- Criar scripts personalizados para resolver problemas específicos de organização e comparação de dados.
-
----
-
-## **Requisitos Gerais**
-
-- **Python 3.x**: Todos os projetos utilizam Python como linguagem principal.
-- **Google Colab**: Alguns scripts foram projetados para rodar no ambiente do Google Colab com acesso ao Google Drive.
+- Desenvolver soluções automatizadas para desafios do dia a dia na Biblioteca Central.
+- Organizar scripts em um só lugar, facilitando o acesso e a reutilização.
+- Documentar e compartilhar ferramentas que possam ser úteis para outros bolsistas ou usuários.
 
 ---
 
-## **Como Usar**
+## **Como Funciona**
 
-1. Clone este repositório:
-   ```bash
-   git clone https://github.com/seuusuario/bc.git
+Os programas neste repositório seguem uma estrutura modular, facilitando a configuração e execução. A maior parte dos scripts foi projetada para rodar no Google Colab, utilizando o Google Drive para entrada e saída de arquivos.
+
+### **Passos Gerais**
+1. Monte o Google Drive no ambiente Colab para acessar os arquivos necessários:
+   ```python
+   from google.colab import drive
+   drive.mount('/content/drive')
    ```
-
-2. Execute o script principal no Google Colab ou em um ambiente Python local com acesso ao Google Drive.
-
----
-
-## **Estrutura do Script Principal**
-
-O script principal possui as seguintes funcionalidades:
-
-### **Função Principal (`main`)**
-- Exibe um menu inicial com as seguintes opções:
-  - **0**: Sair do programa.
-  - **1**: Pesquisa de relação de artigos sem arquivos correspondentes.
-  - **2**: Contagem de arquivos em uma pasta do Google Drive.
-
-### **Menus Secundários**
-1. **Menu de Pesquisa de Relação de Artigos**:
-   - Configuração dos caminhos para a pasta no Drive e arquivos de saída.
-   - Opção para colar diretamente uma lista de nomes copiada do Google Sheets.
-   - Realização da pesquisa e geração dos arquivos de saída.
-
-2. **Menu de Contagem de Arquivos**:
-   - Configuração do caminho da pasta a ser analisada.
-   - Exibição do número total de arquivos na pasta.
-
-### **Funções Auxiliares**
-- **`limpa_lista(arquivo_saida)`**: Limpa o conteúdo de um arquivo de saída.
-- **`puxa_nomes(pasta_drive, arquivo_saida)`**: Recupera os nomes dos arquivos em uma pasta do Drive e os salva em um arquivo.
-- **`montegem_caminho()`**: Solicita ao usuário o caminho de uma pasta ou arquivo.
-- **`limpar_tela()`**: Limpa a tela do terminal ou ambiente interativo para melhorar a exibição do menu.
+2. Configure os caminhos de entrada e saída conforme solicitado pelo programa.
+3. Execute as tarefas automatizadas e revise os resultados gerados.
 
 ---
 
-## **Fluxo de Execução**
+## **Requisitos**
 
-1. O script monta o Google Drive para acessar as pastas compartilhadas ou do usuário.
-2. O menu inicial é exibido com as opções principais.
-3. Dependendo da escolha do usuário, menus adicionais permitem configurar caminhos e realizar as operações desejadas.
-4. Arquivos de saída são gerados automaticamente nos locais configurados.
-
----
-
-## **Estrutura do Repositório**
-
-- **Scripts**:
-  - Código principal com funções organizadas.
-- **Saída**:
-  - Arquivos gerados com os resultados das análises.
+- **Python 3.x**
+- **Google Colab** ou um ambiente local com acesso ao Google Drive.
+- Bibliotecas principais:
+  - `os`
+  - `time`
+  - `IPython.display`
 
 ---
 
-## **Contribuições**
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests para melhorias no repositório.
